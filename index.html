@@ -1,922 +1,357 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>InfluenceX | Digital Marketing</title>
+<title>Demo</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
 }
 
 body{
-    font-family:'Inter',sans-serif;
-    background:#050507;
-    color:#fff;
-    overflow-x:hidden;
+  background:#0f1020;
+  color:white;
 }
 
-/* Animated Background */
-
-.background{
-    position:fixed;
-    inset:0;
-    overflow:hidden;
-    z-index:-1;
+.container{
+  display:flex;
+  flex-direction:row-reverse;
+  min-height:100vh;
 }
 
-.blob{
-    position:absolute;
-    border-radius:50%;
-    filter:blur(100px);
-    opacity:.35;
-    animation:move 10s infinite alternate ease-in-out;
+.demo{
+  width:70%;
+  background:#111;
+  position:relative;
 }
 
-.blob.one{
-    width:400px;
-    height:400px;
-    background:#ff4d8d;
-    top:-150px;
-    left:-100px;
+iframe{
+  width:100%;
+  height:100vh;
+  border:none;
 }
 
-.blob.two{
-    width:450px;
-    height:450px;
-    background:#6547ff;
-    right:-150px;
-    top:25%;
-    animation-delay:2s;
+.right{
+  width:30%;
+  padding:30px 22px;
+  background:linear-gradient(180deg,#181a35,#0b0c18);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow-y:auto;
 }
 
-.blob.three{
-    width:350px;
-    height:350px;
-    background:#00d9ff;
-    bottom:-150px;
-    left:35%;
-    animation-delay:4s;
-}
-
-@keyframes move{
-    from{
-        transform:translate(0,0) scale(1);
-    }
-    to{
-        transform:translate(80px,-50px) scale(1.2);
-    }
-}
-
-/* Navigation */
-
-nav{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    padding:22px 7%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    z-index:100;
-    background:rgba(5,5,7,.55);
-    backdrop-filter:blur(20px);
-    border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.logo{
-    font-size:25px;
-    font-weight:800;
-}
-
-.logo span{
-    color:#ff4d8d;
-}
-
-nav ul{
-    display:flex;
-    list-style:none;
-    gap:35px;
-}
-
-nav a{
-    color:#aaa;
-    text-decoration:none;
-    font-size:14px;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#fff;
-}
-
-/* Hero */
-
-.hero{
-    min-height:100vh;
-    padding:150px 7% 80px;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    align-items:center;
-    gap:50px;
+.box{
+  width:100%;
+  background:rgba(10,10,10,.88);
+  border:1px solid #1E90FF;
+  border-radius:22px;
+  padding:26px 20px;
+  text-align:center;
+  box-shadow:0 0 35px rgba(30,144,255,.28);
 }
 
 .badge{
-    display:inline-block;
-    padding:9px 17px;
-    border:1px solid rgba(255,255,255,.15);
-    background:rgba(255,255,255,.06);
-    border-radius:50px;
-    color:#ff83ad;
-    font-size:13px;
-    margin-bottom:25px;
+  display:inline-block;
+  background:#1E90FF;
+  color:#fff;
+  padding:8px 18px;
+  border-radius:30px;
+  font-weight:800;
+  margin-bottom:16px;
 }
 
-.hero h1{
-    font-size:clamp(48px,6vw,82px);
-    line-height:.95;
-    letter-spacing:-4px;
-    margin-bottom:28px;
+h1{
+  font-size:34px;
+  color:#1E90FF;
+  margin-bottom:10px;
+  text-transform:uppercase;
 }
 
-.gradient{
-    background:linear-gradient(
-        90deg,
-        #ff4d8d,
-        #a86bff,
-        #42dfff
-    );
-    -webkit-background-clip:text;
-    color:transparent;
+.sub{
+  font-size:17px;
+  line-height:1.5;
+  margin-bottom:22px;
+  color:#eee;
 }
 
-.hero p{
-    max-width:570px;
-    color:#999;
-    line-height:1.8;
-    font-size:17px;
-    margin-bottom:35px;
+.features{
+  display:grid;
+  gap:12px;
+  margin:22px 0;
 }
 
-.buttons{
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
+.feature{
+  background:linear-gradient(90deg,#1b1b1b,#0d1c30);
+  border:1px solid rgba(66,153,225,.55);
+  padding:14px;
+  border-radius:14px;
+  font-size:17px;
+  font-weight:700;
 }
 
-.btn{
-    text-decoration:none;
-    color:white;
-    padding:15px 25px;
-    border-radius:12px;
-    font-weight:600;
-    font-size:14px;
-    transition:.3s;
+.feature span{
+  color:#1E90FF;
 }
 
-.primary{
-    background:linear-gradient(135deg,#ff4d8d,#754cff);
-    box-shadow:0 15px 40px rgba(255,77,141,.25);
+/* Signup Button */
+.signup-btn{
+  display:inline-block;
+  margin-top:8px;
+  padding:9px 16px;
+  background:#25D366;
+  color:#fff;
+  text-decoration:none;
+  border-radius:9px;
+  font-size:15px;
+  font-weight:800;
+  border:1px solid #1ebe5d;
+  transition:.3s;
 }
 
-.secondary{
-    border:1px solid rgba(255,255,255,.15);
-    background:rgba(255,255,255,.05);
+.signup-btn:hover{
+  background:#1ebe5d;
+  transform:scale(1.03);
 }
 
-.btn:hover{
-    transform:translateY(-5px);
+.website-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-top:16px;
+  font-size:14px;
+  font-weight:bold;
 }
 
-/* 3D Object */
-
-.visual{
-    height:500px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    perspective:1200px;
+.website-row a{
+  text-decoration:none;
 }
 
-.orbit{
-    width:360px;
-    height:360px;
-    border:1px solid rgba(255,255,255,.2);
-    border-radius:50%;
-    position:absolute;
-    transform:rotateX(70deg);
-    animation:spin 8s linear infinite;
+.website{
+  color:#25D366;
 }
 
-.orbit.two{
-    width:290px;
-    height:290px;
-    transform:rotateY(70deg);
-    animation-direction:reverse;
-    animation-duration:12s;
+.whatsapp-small{
+  color:#1E90FF;
 }
 
-@keyframes spin{
-    to{
-        transform:rotateX(70deg) rotateZ(360deg);
-    }
+.cta{
+  display:block;
+  background:#25D366;
+  color:#fff;
+  text-decoration:none;
+  padding:17px;
+  border-radius:16px;
+  font-size:20px;
+  font-weight:900;
+  margin-top:22px;
+  box-shadow:0 8px 18px rgba(37,211,102,.35);
+  transition:.3s;
 }
 
-.sphere{
-    width:280px;
-    height:280px;
-    border-radius:50%;
-    position:relative;
-    background:
-        radial-gradient(
-            circle at 30% 25%,
-            #fff,
-            #ff83ad 8%,
-            #754cff 38%,
-            #111 75%
-        );
-
-    box-shadow:
-        0 0 80px rgba(255,77,141,.35),
-        inset -30px -30px 70px rgba(0,0,0,.6),
-        inset 20px 20px 40px rgba(255,255,255,.25);
-
-    transform-style:preserve-3d;
-    animation:float 4s ease-in-out infinite;
+.cta:hover{
+  transform:scale(1.03);
+  background:#1ebe5d;
 }
 
-.sphere::before{
-    content:"";
-    position:absolute;
+/* Floating Signup Button */
+.floating-signup{
+  position:absolute;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:50;
+  background:#1E90FF;
+  color:#fff;
+  padding:12px 24px;
+  border-radius:8px;
+  font-size:18px;
+  font-weight:900;
+  border:3px solid #fff;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(30,144,255,0.6);
+  transition:.3s;
+  text-decoration:none;
+  display:inline-block;
+}
+
+.floating-signup:hover{
+  transform:translateX(-50%) scale(1.08);
+  background:#0B6EDB;
+  box-shadow:0 12px 25px rgba(30,144,255,0.8);
+}
+
+.trust{
+  margin-top:16px;
+  color:#ccc;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.footer{
+  margin-top:18px;
+  font-size:12px;
+  color:#aaa;
+  line-height:1.5;
+}
+
+@media(max-width:768px){
+  .container{
+    flex-direction:column-reverse;
+  }
+
+  .demo,
+  .right{
     width:100%;
-    height:100%;
-    border-radius:50%;
-    background:
-        repeating-linear-gradient(
-            90deg,
-            transparent 0,
-            transparent 20px,
-            rgba(255,255,255,.08) 21px,
-            transparent 22px
-        );
-    transform:translateZ(20px);
+  }
+
+  iframe{
+    height:500px;
+  }
+
+  .right{
+    padding:20px;
+  }
 }
 
-.sphere-content{
-    position:absolute;
-    inset:0;
-    display:flex;
+@media(max-width:480px){
+  h1{
+    font-size:28px;
+  }
+
+  .sub{
+    font-size:16px;
+  }
+
+  .feature{
+    font-size:16px;
+    padding:12px;
+  }
+
+  .signup-btn{
+    font-size:14px;
+    padding:8px 13px;
+  }
+
+  .cta{
+    font-size:18px;
+    padding:15px;
+  }
+
+  .website-row{
     flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    transform:translateZ(50px);
-}
-
-.sphere-content strong{
-    font-size:65px;
-}
-
-.sphere-content small{
-    color:#ddd;
-    margin-top:5px;
-}
-
-@keyframes float{
-    0%,100%{
-        transform:translateY(0) rotateY(0);
-    }
-    50%{
-        transform:translateY(-25px) rotateY(15deg);
-    }
-}
-
-/* Stats */
-
-.stats{
-    padding:30px 7% 100px;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-}
-
-.stat{
-    padding:30px;
-    border:1px solid rgba(255,255,255,.09);
-    background:rgba(255,255,255,.04);
-    border-radius:18px;
-    backdrop-filter:blur(15px);
-    transition:.4s;
-}
-
-.stat:hover{
-    transform:translateY(-8px) rotateX(5deg);
-}
-
-.stat h2{
-    font-size:35px;
-    margin-bottom:8px;
-}
-
-.stat span{
-    color:#ff5c99;
-}
-
-.stat p{
-    color:#777;
-    font-size:13px;
-}
-
-/* Section */
-
-section{
-    padding-left:7%;
-    padding-right:7%;
-}
-
-.section-heading{
-    max-width:700px;
-    margin-bottom:50px;
-}
-
-.section-heading small{
-    color:#ff5c99;
-    text-transform:uppercase;
-    letter-spacing:3px;
-}
-
-.section-heading h2{
-    font-size:48px;
-    margin-top:12px;
-}
-
-.section-heading p{
-    color:#888;
-    margin-top:15px;
-    line-height:1.7;
-}
-
-/* Services */
-
-.services{
-    padding-top:80px;
-    padding-bottom:120px;
-}
-
-.service-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:22px;
-}
-
-.service{
-    min-height:280px;
-    padding:35px;
-    border-radius:24px;
-    border:1px solid rgba(255,255,255,.1);
-    background:linear-gradient(
-        145deg,
-        rgba(255,255,255,.08),
-        rgba(255,255,255,.02)
-    );
-    transform-style:preserve-3d;
-    transition:.2s;
-}
-
-.service:hover{
-    box-shadow:0 30px 60px rgba(0,0,0,.4);
-}
-
-.icon{
-    width:60px;
-    height:60px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border-radius:16px;
-    background:linear-gradient(135deg,#ff4d8d,#754cff);
-    font-size:27px;
-    margin-bottom:45px;
-    transform:translateZ(40px);
-}
-
-.service h3{
-    font-size:22px;
-    margin-bottom:12px;
-    transform:translateZ(30px);
-}
-
-.service p{
-    color:#888;
-    line-height:1.7;
-    transform:translateZ(20px);
-}
-
-/* Campaign */
-
-.campaign{
-    padding-bottom:120px;
-}
-
-.campaign-grid{
-    display:grid;
-    grid-template-columns:1.4fr 1fr;
-    gap:22px;
-}
-
-.campaign-card{
-    min-height:400px;
-    border-radius:25px;
-    padding:35px;
-    border:1px solid rgba(255,255,255,.1);
-    background:linear-gradient(135deg,#15151e,#09090c);
-    position:relative;
-    overflow:hidden;
-}
-
-.campaign-card::after{
-    content:"";
-    position:absolute;
-    width:250px;
-    height:250px;
-    background:#754cff;
-    filter:blur(100px);
-    right:-100px;
-    bottom:-100px;
-}
-
-.campaign-card h3{
-    font-size:30px;
-    position:relative;
-    z-index:2;
-}
-
-.campaign-card p{
-    color:#888;
-    max-width:450px;
-    margin-top:15px;
-    line-height:1.7;
-    position:relative;
-    z-index:2;
-}
-
-.mini-stats{
-    display:flex;
-    gap:40px;
-    margin-top:70px;
-    position:relative;
-    z-index:2;
-}
-
-.mini-stats strong{
-    display:block;
-    font-size:30px;
-}
-
-.mini-stats span{
-    color:#777;
-    font-size:12px;
-}
-
-/* Contact */
-
-.contact{
-    margin:0 7% 70px;
-    padding:80px 40px;
-    text-align:center;
-    border-radius:30px;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,77,141,.2),
-            rgba(117,76,255,.2)
-        );
-    border:1px solid rgba(255,255,255,.12);
-}
-
-.contact h2{
-    font-size:50px;
-    margin-bottom:15px;
-}
-
-.contact p{
-    color:#999;
-    margin-bottom:30px;
-}
-
-/* Footer */
-
-footer{
-    padding:30px 7%;
-    border-top:1px solid rgba(255,255,255,.08);
-    display:flex;
-    justify-content:space-between;
-    color:#666;
-    font-size:13px;
-}
-
-/* Mobile */
-
-@media(max-width:850px){
-
-    nav ul{
-        display:none;
-    }
-
-    .hero{
-        grid-template-columns:1fr;
-        text-align:center;
-        padding-top:130px;
-    }
-
-    .hero p{
-        margin-left:auto;
-        margin-right:auto;
-    }
-
-    .buttons{
-        justify-content:center;
-    }
-
-    .visual{
-        height:400px;
-    }
-
-    .stats{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .service-grid{
-        grid-template-columns:1fr;
-    }
-
-    .campaign-grid{
-        grid-template-columns:1fr;
-    }
-
-    .section-heading h2{
-        font-size:38px;
-    }
-
-    .contact h2{
-        font-size:36px;
-    }
-
-    footer{
-        flex-direction:column;
-        gap:10px;
-        text-align:center;
-    }
-}
-
-@media(max-width:500px){
-
-    .stats{
-        grid-template-columns:1fr;
-    }
-
-    .sphere{
-        width:220px;
-        height:220px;
-    }
-
-    .orbit{
-        width:280px;
-        height:280px;
-    }
-
-    .orbit.two{
-        width:230px;
-        height:230px;
-    }
-
-    .sphere-content strong{
-        font-size:50px;
-    }
+    gap:8px;
+  }
 }
 </style>
+
 </head>
 
 <body>
 
-<div class="background">
-    <div class="blob one"></div>
-    <div class="blob two"></div>
-    <div class="blob three"></div>
-</div>
+<div class="container">
 
-<!-- NAVIGATION -->
+  <div class="demo">
+    <a href="https://diamond247.com/clk?src=fLABjgt7" target="_blank" rel="noopener noreferrer" class="floating-signup">🔥 CLICK ON SIGNUP 🔥</a>
+    <iframe src="https://diamond247.com/clk?src=fLABjgt7"></iframe>
+  </div>
 
-<nav>
-    <div class="logo">Influence<span>X</span></div>
+  <div class="right">
+    <div class="box">
 
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#campaigns">Campaigns</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+```
+  <div class="badge">AUTO WEBSITE</div>
 
-<!-- HERO -->
+  <h1>Get Your ID Now</h1>
 
-<section class="hero" id="home">
+  <p class="sub">
+    Fast auto website service with easy deposit support.
+    New users can start quickly through WhatsApp.
+  </p>
 
-    <div>
+  <div class="features">www.diamond247.com
 
-        <div class="badge">
-            ✦ DIGITAL MARKETING INFLUENCER
-        </div>
-
-        <h1>
-            Make Your Brand
-            <span>Impossible To Ignore.</span>
-        </h1>
-
-        <p>
-            I help ambitious brands dominate social media,
-            create viral campaigns and turn followers into
-            loyal customers.
-        </p>
-
-        <div class="buttons">
-            <a href="#contact" class="btn primary">
-                Start a Campaign →
-            </a>
-
-            <a href="#services" class="btn secondary">
-                Explore Services
-            </a>
-        </div>
-
+    <div class="feature">
+      Minimum Deposit: <span>₹100 Only</span>
     </div>
 
-    <div class="visual">
-
-        <div class="orbit"></div>
-        <div class="orbit two"></div>
-
-        <div class="sphere">
-
-            <div class="sphere-content">
-                <strong>10M</strong>
-                <small>MONTHLY REACH</small>
-            </div>
-
-        </div>
-
+    <div class="feature">
+      Welcome Bonus: <span>10%</span>
     </div>
 
-</section>
-
-<!-- STATS -->
-
-<div class="stats">
-
-    <div class="stat">
-        <h2><span>500K+</span></h2>
-        <p>Social Followers</p>
+    <div class="feature">
+      Auto Website Support:
+      <a
+        class="signup-btn"
+        href="https://diamond247.com/clk?src=fLABjgt7"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Click on Signup
+      </a>
     </div>
 
-    <div class="stat">
-        <h2>10M<span>+</span></h2>
-        <p>Monthly Reach</p>
+    <div class="feature">
+      Quick Help:
+      <span>Deposit &amp; Withdrawal Support</span>
     </div>
 
-    <div class="stat">
-        <h2>250<span>+</span></h2>
-        <p>Brand Deals</p>
-    </div>
+  </div>
 
-    <div class="stat">
-        <h2>94<span>%</span></h2>
-        <p>Campaign Success</p>
-    </div>
+  <div class="website-row">
 
-</div>
-
-<!-- SERVICES -->
-
-<section class="services" id="services">
-
-    <div class="section-heading">
-
-        <small>What I Do</small>
-
-        <h2>
-            Turn Attention Into
-            <span class="gradient">Growth.</span>
-        </h2>
-
-        <p>
-            From strategy to execution, I build campaigns
-            designed to make your brand stand out.
-        </p>
-
-    </div>
-
-    <div class="service-grid">
-
-        <div class="service">
-
-            <div class="icon">🚀</div>
-
-            <h3>Influencer Marketing</h3>
-
-            <p>
-                Strategic influencer campaigns that connect
-                your brand with the right audience.
-            </p>
-
-        </div>
-
-        <div class="service">
-
-            <div class="icon">🔥</div>
-
-            <h3>Viral Content</h3>
-
-            <p>
-                High-impact content built to stop scrolling,
-                generate engagement and increase reach.
-            </p>
-
-        </div>
-
-        <div class="service">
-
-            <div class="icon">📈</div>
-
-            <h3>Growth Strategy</h3>
-
-            <p>
-                Data-driven social media strategies that
-                turn attention into measurable business results.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- CAMPAIGNS -->
-
-<section class="campaign" id="campaigns">
-
-    <div class="section-heading">
-
-        <small>Featured Work</small>
-
-        <h2>
-            Campaigns That
-            <span class="gradient">Delivered.</span>
-        </h2>
-
-    </div>
-
-    <div class="campaign-grid">
-
-        <div class="campaign-card">
-
-            <h3>Fashion Brand Launch</h3>
-
-            <p>
-                Created a multi-platform influencer campaign
-                that generated massive awareness during a
-                new product launch.
-            </p>
-
-            <div class="mini-stats">
-
-                <div>
-                    <strong>8.4M</strong>
-                    <span>IMPRESSIONS</span>
-                </div>
-
-                <div>
-                    <strong>420K</strong>
-                    <span>ENGAGEMENTS</span>
-                </div>
-
-                <div>
-                    <strong>6.8%</strong>
-                    <span>CONVERSION</span>
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="campaign-card">
-
-            <h3>Tech Product Campaign</h3>
-
-            <p>
-                A short-form video campaign designed to
-                introduce a new product to Gen-Z audiences.
-            </p>
-
-            <div class="mini-stats">
-
-                <div>
-                    <strong>4.2M</strong>
-                    <span>VIEWS</span>
-                </div>
-
-                <div>
-                    <strong>180K</strong>
-                    <span>CLICKS</span>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- CONTACT -->
-
-<div class="contact" id="contact">
-
-    <h2>Let's Make Noise.</h2>
-
-    <p>
-        Have a product, campaign or idea?
-        Let's turn it into something unforgettable.
-    </p>
-
-    <a href="mailto:hello@example.com" class="btn primary">
-        Work With Me →
+    <a
+      class="website"
+      href="https://diamond247.com/clk?src=fLABjgt7"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      🌐 www.diamond247.com
     </a>
 
+    <a
+      class="whatsapp-small"
+      href="https://wa.me/447515017700"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      💬 WhatsApp
+    </a>
+
+  </div>
+
+  <a
+    class="cta"
+    href="https://wa.me/447515017700?text=Hello%20I%20want%20new%20manual%20ID"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    📲 WhatsApp Now
+  </a>
+
+  <p class="trust">
+    ✅ Trusted Manual Support<br>
+    ✅ Simple Process<br>
+    ✅ Fast Response
+  </p>
+
+  <div class="footer">
+    18+ Only | Play Responsibly | Follow Your Local Laws | T&amp;C Apply
+  </div>
+
 </div>
+```
 
-<footer>
+  </div>
 
-    <div>
-        © 2026 InfluenceX
-    </div>
-
-    <div>
-        Instagram · TikTok · YouTube
-    </div>
-
-</footer>
-
-<script>
-
-/* 3D Mouse Tilt */
-
-const cards = document.querySelectorAll(".service");
-
-cards.forEach(card => {
-
-    card.addEventListener("mousemove", e => {
-
-        const rect = card.getBoundingClientRect();
-
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX =
-            ((y - centerY) / centerY) * -10;
-
-        const rotateY =
-            ((x - centerX) / centerX) * 10;
-
-        card.style.transform =
-            `perspective(900px)
-             rotateX(${rotateX}deg)
-             rotateY(${rotateY}deg)
-             translateY(-8px)`;
-    });
-
-    card.addEventListener("mouseleave", () => {
-
-        card.style.transform =
-            "perspective(900px) rotateX(0deg) rotateY(0deg)";
-
-    });
-
-});
-
-</script>
+</div>
 
 </body>
 </html>
