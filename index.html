@@ -1,137 +1,922 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apex Media — AI Powered Digital Growth Partner</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>InfluenceX | Digital Marketing</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#050507;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* Animated Background */
+
+.background{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(100px);
+    opacity:.35;
+    animation:move 10s infinite alternate ease-in-out;
+}
+
+.blob.one{
+    width:400px;
+    height:400px;
+    background:#ff4d8d;
+    top:-150px;
+    left:-100px;
+}
+
+.blob.two{
+    width:450px;
+    height:450px;
+    background:#6547ff;
+    right:-150px;
+    top:25%;
+    animation-delay:2s;
+}
+
+.blob.three{
+    width:350px;
+    height:350px;
+    background:#00d9ff;
+    bottom:-150px;
+    left:35%;
+    animation-delay:4s;
+}
+
+@keyframes move{
+    from{
+        transform:translate(0,0) scale(1);
+    }
+    to{
+        transform:translate(80px,-50px) scale(1.2);
+    }
+}
+
+/* Navigation */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:22px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:100;
+    background:rgba(5,5,7,.55);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    font-size:25px;
+    font-weight:800;
+}
+
+.logo span{
+    color:#ff4d8d;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:35px;
+}
+
+nav a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:14px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#fff;
+}
+
+/* Hero */
+
+.hero{
+    min-height:100vh;
+    padding:150px 7% 80px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:50px;
+}
+
+.badge{
+    display:inline-block;
+    padding:9px 17px;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.06);
+    border-radius:50px;
+    color:#ff83ad;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:clamp(48px,6vw,82px);
+    line-height:.95;
+    letter-spacing:-4px;
+    margin-bottom:28px;
+}
+
+.gradient{
+    background:linear-gradient(
+        90deg,
+        #ff4d8d,
+        #a86bff,
+        #42dfff
+    );
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    max-width:570px;
+    color:#999;
+    line-height:1.8;
+    font-size:17px;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    text-decoration:none;
+    color:white;
+    padding:15px 25px;
+    border-radius:12px;
+    font-weight:600;
+    font-size:14px;
+    transition:.3s;
+}
+
+.primary{
+    background:linear-gradient(135deg,#ff4d8d,#754cff);
+    box-shadow:0 15px 40px rgba(255,77,141,.25);
+}
+
+.secondary{
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.05);
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+/* 3D Object */
+
+.visual{
+    height:500px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    perspective:1200px;
+}
+
+.orbit{
+    width:360px;
+    height:360px;
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:50%;
+    position:absolute;
+    transform:rotateX(70deg);
+    animation:spin 8s linear infinite;
+}
+
+.orbit.two{
+    width:290px;
+    height:290px;
+    transform:rotateY(70deg);
+    animation-direction:reverse;
+    animation-duration:12s;
+}
+
+@keyframes spin{
+    to{
+        transform:rotateX(70deg) rotateZ(360deg);
+    }
+}
+
+.sphere{
+    width:280px;
+    height:280px;
+    border-radius:50%;
+    position:relative;
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #fff,
+            #ff83ad 8%,
+            #754cff 38%,
+            #111 75%
+        );
+
+    box-shadow:
+        0 0 80px rgba(255,77,141,.35),
+        inset -30px -30px 70px rgba(0,0,0,.6),
+        inset 20px 20px 40px rgba(255,255,255,.25);
+
+    transform-style:preserve-3d;
+    animation:float 4s ease-in-out infinite;
+}
+
+.sphere::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 20px,
+            rgba(255,255,255,.08) 21px,
+            transparent 22px
+        );
+    transform:translateZ(20px);
+}
+
+.sphere-content{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    transform:translateZ(50px);
+}
+
+.sphere-content strong{
+    font-size:65px;
+}
+
+.sphere-content small{
+    color:#ddd;
+    margin-top:5px;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0) rotateY(0);
+    }
+    50%{
+        transform:translateY(-25px) rotateY(15deg);
+    }
+}
+
+/* Stats */
+
+.stats{
+    padding:30px 7% 100px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.stat{
+    padding:30px;
+    border:1px solid rgba(255,255,255,.09);
+    background:rgba(255,255,255,.04);
+    border-radius:18px;
+    backdrop-filter:blur(15px);
+    transition:.4s;
+}
+
+.stat:hover{
+    transform:translateY(-8px) rotateX(5deg);
+}
+
+.stat h2{
+    font-size:35px;
+    margin-bottom:8px;
+}
+
+.stat span{
+    color:#ff5c99;
+}
+
+.stat p{
+    color:#777;
+    font-size:13px;
+}
+
+/* Section */
+
+section{
+    padding-left:7%;
+    padding-right:7%;
+}
+
+.section-heading{
+    max-width:700px;
+    margin-bottom:50px;
+}
+
+.section-heading small{
+    color:#ff5c99;
+    text-transform:uppercase;
+    letter-spacing:3px;
+}
+
+.section-heading h2{
+    font-size:48px;
+    margin-top:12px;
+}
+
+.section-heading p{
+    color:#888;
+    margin-top:15px;
+    line-height:1.7;
+}
+
+/* Services */
+
+.services{
+    padding-top:80px;
+    padding-bottom:120px;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.service{
+    min-height:280px;
+    padding:35px;
+    border-radius:24px;
+    border:1px solid rgba(255,255,255,.1);
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.02)
+    );
+    transform-style:preserve-3d;
+    transition:.2s;
+}
+
+.service:hover{
+    box-shadow:0 30px 60px rgba(0,0,0,.4);
+}
+
+.icon{
+    width:60px;
+    height:60px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:16px;
+    background:linear-gradient(135deg,#ff4d8d,#754cff);
+    font-size:27px;
+    margin-bottom:45px;
+    transform:translateZ(40px);
+}
+
+.service h3{
+    font-size:22px;
+    margin-bottom:12px;
+    transform:translateZ(30px);
+}
+
+.service p{
+    color:#888;
+    line-height:1.7;
+    transform:translateZ(20px);
+}
+
+/* Campaign */
+
+.campaign{
+    padding-bottom:120px;
+}
+
+.campaign-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    gap:22px;
+}
+
+.campaign-card{
+    min-height:400px;
+    border-radius:25px;
+    padding:35px;
+    border:1px solid rgba(255,255,255,.1);
+    background:linear-gradient(135deg,#15151e,#09090c);
+    position:relative;
+    overflow:hidden;
+}
+
+.campaign-card::after{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    background:#754cff;
+    filter:blur(100px);
+    right:-100px;
+    bottom:-100px;
+}
+
+.campaign-card h3{
+    font-size:30px;
+    position:relative;
+    z-index:2;
+}
+
+.campaign-card p{
+    color:#888;
+    max-width:450px;
+    margin-top:15px;
+    line-height:1.7;
+    position:relative;
+    z-index:2;
+}
+
+.mini-stats{
+    display:flex;
+    gap:40px;
+    margin-top:70px;
+    position:relative;
+    z-index:2;
+}
+
+.mini-stats strong{
+    display:block;
+    font-size:30px;
+}
+
+.mini-stats span{
+    color:#777;
+    font-size:12px;
+}
+
+/* Contact */
+
+.contact{
+    margin:0 7% 70px;
+    padding:80px 40px;
+    text-align:center;
+    border-radius:30px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,77,141,.2),
+            rgba(117,76,255,.2)
+        );
+    border:1px solid rgba(255,255,255,.12);
+}
+
+.contact h2{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+.contact p{
+    color:#999;
+    margin-bottom:30px;
+}
+
+/* Footer */
+
+footer{
+    padding:30px 7%;
+    border-top:1px solid rgba(255,255,255,.08);
+    display:flex;
+    justify-content:space-between;
+    color:#666;
+    font-size:13px;
+}
+
+/* Mobile */
+
+@media(max-width:850px){
+
+    nav ul{
+        display:none;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+        text-align:center;
+        padding-top:130px;
+    }
+
+    .hero p{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .buttons{
+        justify-content:center;
+    }
+
+    .visual{
+        height:400px;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .service-grid{
+        grid-template-columns:1fr;
+    }
+
+    .campaign-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-heading h2{
+        font-size:38px;
+    }
+
+    .contact h2{
+        font-size:36px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:10px;
+        text-align:center;
+    }
+}
+
+@media(max-width:500px){
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .sphere{
+        width:220px;
+        height:220px;
+    }
+
+    .orbit{
+        width:280px;
+        height:280px;
+    }
+
+    .orbit.two{
+        width:230px;
+        height:230px;
+    }
+
+    .sphere-content strong{
+        font-size:50px;
+    }
+}
+</style>
 </head>
+
 <body>
-  <div class="noise"></div>
-  <div class="cursor-dot"></div>
 
-  <header class="nav" id="nav">
-    <a class="brand" href="#top">
-      <span class="brand-mark">A</span>
-      <span><b>APEX</b><small>MEDIA</small></span>
-    </a>
-    <nav>
-      <a href="#services"><span>01</span>Services</a>
-      <a href="#portfolio"><span>02</span>Work</a>
-      <a href="#process"><span>03</span>Process</a>
-      <a href="#contact"><span>04</span>Contact</a>
-    </nav>
-    <a class="btn btn-sm" href="#contact">Book Consultation</a>
-  </header>
+<div class="background">
+    <div class="blob one"></div>
+    <div class="blob two"></div>
+    <div class="blob three"></div>
+</div>
 
-  <main id="top">
-    <section class="hero" id="hero">
-      <div class="hero-bg" id="heroBg">
-        <div class="orb orb-a"></div>
-        <div class="orb orb-b"></div>
-        <div class="lines"></div>
-        <canvas id="stars"></canvas>
-      </div>
-      <div class="float-panel fp1 reveal"><small>SEO Dashboard</small><b>+182%</b><span>Organic Traffic</span></div>
-      <div class="float-panel fp2 reveal"><small>Google Ads</small><b>4.2x</b><span>ROAS</span></div>
-      <div class="float-panel fp3 reveal"><small>Apex AI</small><b>Online</b><span>247 chats today</span></div>
-      <div class="float-panel fp4 reveal"><small>Meta Campaign</small><b>AED 2.10</b><span>Cost / Lead</span></div>
+<!-- NAVIGATION -->
 
-      <div class="hero-inner">
-        <p class="eyebrow reveal">Apex Media — Dubai, UAE</p>
-        <h1 class="headline reveal">
-          <span>AI <em>Powered</em></span>
-          <span>Digital <em>Growth</em></span>
-          <span><em>Partner.</em></span>
+<nav>
+    <div class="logo">Influence<span>X</span></div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#campaigns">Campaigns</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div>
+
+        <div class="badge">
+            ✦ DIGITAL MARKETING INFLUENCER
+        </div>
+
+        <h1>
+            Make Your Brand
+            <span>Impossible To Ignore.</span>
         </h1>
-        <p class="hero-copy reveal">We design, build and scale premium digital experiences for ambitious businesses across the UAE — combining award-winning craft with AI automation that compounds growth.</p>
-        <div class="hero-actions reveal">
-          <a class="btn" href="#contact">Book Free Consultation →</a>
-          <a class="btn ghost" href="#portfolio">Explore Our Work</a>
+
+        <p>
+            I help ambitious brands dominate social media,
+            create viral campaigns and turn followers into
+            loyal customers.
+        </p>
+
+        <div class="buttons">
+            <a href="#contact" class="btn primary">
+                Start a Campaign →
+            </a>
+
+            <a href="#services" class="btn secondary">
+                Explore Services
+            </a>
         </div>
-        <div class="metrics reveal">
-          <div><b>120+</b><span>Brands scaled</span></div>
-          <div><b>19</b><span>Growth services</span></div>
-          <div><b>350%</b><span>Avg lead lift</span></div>
-          <div><b>24/7</b><span>AI uptime</span></div>
+
+    </div>
+
+    <div class="visual">
+
+        <div class="orbit"></div>
+        <div class="orbit two"></div>
+
+        <div class="sphere">
+
+            <div class="sphere-content">
+                <strong>10M</strong>
+                <small>MONTHLY REACH</small>
+            </div>
+
         </div>
-      </div>
-      <div class="scroll-hint"><span>SCROLL</span><i></i></div>
-    </section>
 
-    <section id="services" class="section services">
-      <div class="section-head reveal">
-        <p class="eyebrow">What we do</p>
-        <h2>Digital growth <em>systems</em> built for modern businesses.</h2>
-        <p>From high-converting websites to AI automation, paid ads, SEO, branding and integrations — Apex Media engineers complete systems designed to attract, convert and scale.</p>
-      </div>
-      <div class="service-group reveal"><span>01</span><h3>Digital Presence</h3></div>
-      <div class="cards">
-        <article class="card wide reveal"><i>▣</i><h3>Website Design</h3><p>Premium websites that build trust and convert visitors.</p><a>Learn more →</a></article>
-        <article class="card reveal"><i>&lt;/&gt;</i><h3>Website Development</h3><p>Fast, scalable, responsive builds with modern tech.</p><a>Learn more →</a></article>
-        <article class="card reveal"><i>◇</i><h3>Landing Pages</h3><p>High-converting pages built for campaigns and launches.</p><a>Learn more →</a></article>
-        <article class="card reveal"><i>✦</i><h3>Brand Identity</h3><p>Luxury identity systems that elevate perception.</p><a>Learn more →</a></article>
-      </div>
-      <div class="service-group reveal"><span>02</span><h3>Growth & Advertising</h3></div>
-      <div class="cards small-grid">
-        <article class="card reveal"><i>◎</i><h3>SEO</h3><p>Search visibility systems for sustainable inbound growth.</p></article>
-        <article class="card reveal"><i>◉</i><h3>Google Ads</h3><p>Performance campaigns engineered for quality leads.</p></article>
-        <article class="card reveal"><i>⌁</i><h3>Meta Ads</h3><p>Scroll-stopping IG & FB campaigns that convert.</p></article>
-        <article class="card reveal"><i>⚙</i><h3>AI Automation</h3><p>Workflows that remove manual work end-to-end.</p></article>
-      </div>
-    </section>
+    </div>
 
-    <section id="portfolio" class="section portfolio">
-      <div class="section-head reveal">
-        <p class="eyebrow">Selected work</p>
-        <h2>Crafted experiences. <em>Real business results.</em></h2>
-        <p>A selection of digital products, brand systems and growth engines built for ambitious operators across the UAE.</p>
-      </div>
-      <div class="project-grid">
-        <article class="project big reveal" style="--img:url('https://images.unsplash.com/photo-1723822603065-f799bbe7c3f7?auto=format&fit=crop&w=1200&q=75')"><span>/01</span><small>Branding · Web · CRM</small><h3>Luxury Business Hub</h3><p><b>+340%</b> Inbound Leads</p></article>
-        <article class="project reveal" style="--img:url('https://images.pexels.com/photos/12564248/pexels-photo-12564248.jpeg?auto=compress&cs=tinysrgb&w=1200')"><span>/02</span><small>Web · SEO · Google Ads</small><h3>NEXSWITCH Corporate</h3><p><b>4.6x</b> ROAS</p></article>
-        <article class="project reveal" style="--img:url('https://images.unsplash.com/photo-1603350902363-3141f62b7dba?auto=format&fit=crop&w=1200&q=75')"><span>/03</span><small>Landing · Meta · CRM</small><h3>Apex Real Estate</h3><p><b>+520%</b> Leads</p></article>
-        <article class="project tall reveal" style="--img:url('https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&w=1200&q=75')"><span>/04</span><small>Brand · Web · Video</small><h3>Luxe Hotel Dubai</h3><p><b>+98%</b> Direct Bookings</p></article>
-      </div>
-    </section>
+</section>
 
-    <section id="process" class="section process">
-      <div class="section-head centered reveal">
-        <p class="eyebrow">Our process</p>
-        <h2>Strategy first. <em>Execution sharp.</em></h2>
-      </div>
-      <div class="process-row">
-        <div class="step reveal"><span>01</span><h3>Discover</h3><p>We audit your brand, market, offer and current funnel.</p></div>
-        <div class="step reveal"><span>02</span><h3>Design</h3><p>We map the visual system, website and conversion journey.</p></div>
-        <div class="step reveal"><span>03</span><h3>Build</h3><p>We develop fast pages, integrations and automation flows.</p></div>
-        <div class="step reveal"><span>04</span><h3>Scale</h3><p>We run paid growth, SEO and continuous optimization.</p></div>
-      </div>
-    </section>
+<!-- STATS -->
 
-    <section id="contact" class="section contact">
-      <div class="contact-box reveal">
-        <div>
-          <p class="eyebrow">Get started</p>
-          <h2>Ready to build something <em>extraordinary?</em></h2>
+<div class="stats">
+
+    <div class="stat">
+        <h2><span>500K+</span></h2>
+        <p>Social Followers</p>
+    </div>
+
+    <div class="stat">
+        <h2>10M<span>+</span></h2>
+        <p>Monthly Reach</p>
+    </div>
+
+    <div class="stat">
+        <h2>250<span>+</span></h2>
+        <p>Brand Deals</p>
+    </div>
+
+    <div class="stat">
+        <h2>94<span>%</span></h2>
+        <p>Campaign Success</p>
+    </div>
+
+</div>
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+
+    <div class="section-heading">
+
+        <small>What I Do</small>
+
+        <h2>
+            Turn Attention Into
+            <span class="gradient">Growth.</span>
+        </h2>
+
+        <p>
+            From strategy to execution, I build campaigns
+            designed to make your brand stand out.
+        </p>
+
+    </div>
+
+    <div class="service-grid">
+
+        <div class="service">
+
+            <div class="icon">🚀</div>
+
+            <h3>Influencer Marketing</h3>
+
+            <p>
+                Strategic influencer campaigns that connect
+                your brand with the right audience.
+            </p>
+
         </div>
-        <form>
-          <input placeholder="Your name" />
-          <input placeholder="Email / WhatsApp" />
-          <textarea placeholder="Tell us about your project"></textarea>
-          <button class="btn" type="button">Send Inquiry →</button>
-        </form>
-      </div>
-    </section>
-  </main>
 
-  <footer>
-    <div class="footer-logo">Apex Media.</div>
-    <div class="footer-links"><a>Instagram</a><a>LinkedIn</a><a>Dubai, UAE</a></div>
-  </footer>
+        <div class="service">
 
-  <script src="js/script.js"></script>
+            <div class="icon">🔥</div>
+
+            <h3>Viral Content</h3>
+
+            <p>
+                High-impact content built to stop scrolling,
+                generate engagement and increase reach.
+            </p>
+
+        </div>
+
+        <div class="service">
+
+            <div class="icon">📈</div>
+
+            <h3>Growth Strategy</h3>
+
+            <p>
+                Data-driven social media strategies that
+                turn attention into measurable business results.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CAMPAIGNS -->
+
+<section class="campaign" id="campaigns">
+
+    <div class="section-heading">
+
+        <small>Featured Work</small>
+
+        <h2>
+            Campaigns That
+            <span class="gradient">Delivered.</span>
+        </h2>
+
+    </div>
+
+    <div class="campaign-grid">
+
+        <div class="campaign-card">
+
+            <h3>Fashion Brand Launch</h3>
+
+            <p>
+                Created a multi-platform influencer campaign
+                that generated massive awareness during a
+                new product launch.
+            </p>
+
+            <div class="mini-stats">
+
+                <div>
+                    <strong>8.4M</strong>
+                    <span>IMPRESSIONS</span>
+                </div>
+
+                <div>
+                    <strong>420K</strong>
+                    <span>ENGAGEMENTS</span>
+                </div>
+
+                <div>
+                    <strong>6.8%</strong>
+                    <span>CONVERSION</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="campaign-card">
+
+            <h3>Tech Product Campaign</h3>
+
+            <p>
+                A short-form video campaign designed to
+                introduce a new product to Gen-Z audiences.
+            </p>
+
+            <div class="mini-stats">
+
+                <div>
+                    <strong>4.2M</strong>
+                    <span>VIEWS</span>
+                </div>
+
+                <div>
+                    <strong>180K</strong>
+                    <span>CLICKS</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<div class="contact" id="contact">
+
+    <h2>Let's Make Noise.</h2>
+
+    <p>
+        Have a product, campaign or idea?
+        Let's turn it into something unforgettable.
+    </p>
+
+    <a href="mailto:hello@example.com" class="btn primary">
+        Work With Me →
+    </a>
+
+</div>
+
+<footer>
+
+    <div>
+        © 2026 InfluenceX
+    </div>
+
+    <div>
+        Instagram · TikTok · YouTube
+    </div>
+
+</footer>
+
+<script>
+
+/* 3D Mouse Tilt */
+
+const cards = document.querySelectorAll(".service");
+
+cards.forEach(card => {
+
+    card.addEventListener("mousemove", e => {
+
+        const rect = card.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX =
+            ((y - centerY) / centerY) * -10;
+
+        const rotateY =
+            ((x - centerX) / centerX) * 10;
+
+        card.style.transform =
+            `perspective(900px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             translateY(-8px)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform =
+            "perspective(900px) rotateX(0deg) rotateY(0deg)";
+
+    });
+
+});
+
+</script>
+
 </body>
 </html>
