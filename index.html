@@ -1,358 +1,386 @@
+```html
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Demo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,sans-serif;
-}
+    <title>MotivateMe - Motivation Blog</title>
 
-body{
-  background:#0f1020;
-  color:white;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.container{
-  display:flex;
-  flex-direction:row-reverse;
-  min-height:100vh;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            color: #222;
+        }
 
-.demo{
-  width:70%;
-  background:#111;
-  position:relative;
-}
+        /* NAVBAR */
 
-iframe{
-  width:100%;
-  height:100vh;
-  border:none;
-}
+        header {
+            background: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px #00000010;
+        }
 
-.right{
-  width:30%;
-  padding:30px 22px;
-  background:linear-gradient(180deg,#181a35,#0b0c18);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow-y:auto;
-}
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #e85d04;
+        }
 
-.box{
-  width:100%;
-  background:rgba(10,10,10,.88);
-  border:1px solid #1E90FF;
-  border-radius:22px;
-  padding:26px 20px;
-  text-align:center;
-  box-shadow:0 0 35px rgba(30,144,255,.28);
-}
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 25px;
+        }
 
-.badge{
-  display:inline-block;
-  background:#1E90FF;
-  color:#fff;
-  padding:8px 18px;
-  border-radius:30px;
-  font-weight:800;
-  margin-bottom:16px;
-}
+        nav a:hover {
+            color: #e85d04;
+        }
 
-h1{
-  font-size:34px;
-  color:#1E90FF;
-  margin-bottom:10px;
-  text-transform:uppercase;
-}
+        /* HERO */
 
-.sub{
-  font-size:17px;
-  line-height:1.5;
-  margin-bottom:22px;
-  color:#eee;
-}
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: #fff1e6;
+        }
 
-.features{
-  display:grid;
-  gap:12px;
-  margin:22px 0;
-}
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
 
-.feature{
-  background:linear-gradient(90deg,#1b1b1b,#0d1c30);
-  border:1px solid rgba(66,153,225,.55);
-  padding:14px;
-  border-radius:14px;
-  font-size:17px;
-  font-weight:700;
-}
+        .hero h1 span {
+            color: #e85d04;
+        }
 
-.feature span{
-  color:#1E90FF;
-}
+        .hero p {
+            color: #666;
+            font-size: 18px;
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.6;
+        }
 
-/* Signup Button */
-.signup-btn{
-  display:inline-block;
-  margin-top:8px;
-  padding:9px 16px;
-  background:#25D366;
-  color:#fff;
-  text-decoration:none;
-  border-radius:9px;
-  font-size:15px;
-  font-weight:800;
-  border:1px solid #1ebe5d;
-  transition:.3s;
-}
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 25px;
+            background: #e85d04;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
 
-.signup-btn:hover{
-  background:#1ebe5d;
-  transform:scale(1.03);
-}
+        /* BLOG */
 
-.website-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  margin-top:16px;
-  font-size:14px;
-  font-weight:bold;
-}
+        .container {
+            width: 85%;
+            max-width: 1100px;
+            margin: 60px auto;
+        }
 
-.website-row a{
-  text-decoration:none;
-}
+        .container h2 {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 35px;
+        }
 
-.website{
-  color:#25D366;
-}
+        .blogs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
 
-.whatsapp-small{
-  color:#1E90FF;
-}
+        .blog {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px #00000010;
+            transition: 0.3s;
+        }
 
-.cta{
-  display:block;
-  background:#25D366;
-  color:#fff;
-  text-decoration:none;
-  padding:17px;
-  border-radius:16px;
-  font-size:20px;
-  font-weight:900;
-  margin-top:22px;
-  box-shadow:0 8px 18px rgba(37,211,102,.35);
-  transition:.3s;
-}
+        .blog:hover {
+            transform: translateY(-5px);
+        }
 
-.cta:hover{
-  transform:scale(1.03);
-  background:#1ebe5d;
-}
+        .blog-img {
+            height: 180px;
+            background: #e85d04;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 45px;
+        }
 
-/* Floating Signup Button */
-.floating-signup{
-  position:absolute;
-  top:20px;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:50;
-  background:#1E90FF;
-  color:#fff;
-  padding:12px 24px;
-  border-radius:8px;
-  font-size:18px;
-  font-weight:900;
-  border:3px solid #fff;
-  cursor:pointer;
-  box-shadow:0 8px 20px rgba(30,144,255,0.6);
-  transition:.3s;
-  text-decoration:none;
-  display:inline-block;
-}
+        .blog-content {
+            padding: 25px;
+        }
 
-.floating-signup:hover{
-  transform:translateX(-50%) scale(1.08);
-  background:#0B6EDB;
-  box-shadow:0 12px 25px rgba(30,144,255,0.8);
-}
+        .blog-content small {
+            color: #e85d04;
+            font-weight: bold;
+        }
 
-.trust{
-  margin-top:16px;
-  color:#ccc;
-  font-size:14px;
-  line-height:1.5;
-}
+        .blog-content h3 {
+            margin: 12px 0;
+            font-size: 22px;
+        }
 
-.footer{
-  margin-top:18px;
-  font-size:12px;
-  color:#aaa;
-  line-height:1.5;
-}
+        .blog-content p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 14px;
+        }
 
-@media(max-width:768px){
-  .container{
-    flex-direction:column-reverse;
-  }
+        .read {
+            display: inline-block;
+            margin-top: 18px;
+            color: #e85d04;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-  .demo,
-  .right{
-    width:100%;
-  }
+        /* QUOTE */
 
-  iframe{
-    height:500px;
-  }
+        .quote {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+            margin-top: 70px;
+        }
 
-  .right{
-    padding:20px;
-  }
-}
+        .quote h2 {
+            font-size: 35px;
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.4;
+        }
 
-@media(max-width:480px){
-  h1{
-    font-size:28px;
-  }
+        .quote p {
+            margin-top: 20px;
+            color: #aaa;
+        }
 
-  .sub{
-    font-size:16px;
-  }
+        /* FOOTER */
 
-  .feature{
-    font-size:16px;
-    padding:12px;
-  }
+        footer {
+            background: white;
+            text-align: center;
+            padding: 25px;
+            color: #777;
+        }
 
-  .signup-btn{
-    font-size:14px;
-    padding:8px 13px;
-  }
+        /* MOBILE */
 
-  .cta{
-    font-size:18px;
-    padding:15px;
-  }
+        @media (max-width: 800px) {
 
-  .website-row{
-    flex-direction:column;
-    gap:8px;
-  }
-}
-</style>
+            .blogs {
+                grid-template-columns: 1fr;
+            }
 
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .quote h2 {
+                font-size: 27px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="container">
+    <!-- NAVBAR -->
 
-  <div class="demo">
-    <a href="https://diamond247.com/clk?src=fLABjgt7" target="_blank" rel="noopener noreferrer" class="floating-signup">🔥 CLICK ON SIGNUP 🔥</a>
-    <iframe src="https://diamond247.com/clk?src=fLABjgt7"></iframe>
-  </div>
+    <header>
 
-  <div class="right">
-    <div class="box">
+        <div class="logo">
+            MotivateMe
+        </div>
 
-```
-  <div class="badge">AUTO WEBSITE</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#blogs">Blogs</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
 
-  <h1>Get Your ID Now</h1>
+    </header>
 
-  <p class="sub">
-    Fast auto website service with easy deposit support.
-    New users can start quickly through WhatsApp.
-  </p>
 
-  <div class="features">www.diamond247.com
+    <!-- HERO -->
 
-    <div class="feature">
-      Minimum Deposit: <span>₹100 Only</span>
-    </div>
+    <section class="hero">
 
-    <div class="feature">
-      Welcome Bonus: <span>10%</span>
-    </div>
+        <h1>
+            Believe in <span>Yourself.</span>
+        </h1>
 
-    <div class="feature">
-      Auto Website Support:
-      <a
-        class="signup-btn"
-        href="https://diamond247.com/clk?src=fLABjgt7"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Click on Signup
-      </a>
-    </div>
+        <p>
+            Simple thoughts, powerful ideas and daily motivation
+            to help you become a better version of yourself.
+        </p>
 
-    <div class="feature">
-      Quick Help:
-      <span>Deposit &amp; Withdrawal Support</span>
-    </div>
+        <a href="#blogs" class="btn">
+            Read Our Blogs
+        </a>
 
-  </div>
+    </section>
 
-  <div class="website-row">
 
-    <a
-      class="website"
-      href="https://diamond247.com/clk?src=fLABjgt7"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      🌐 www.diamond247.com
-    </a>
+    <!-- BLOG POSTS -->
 
-    <a
-      class="whatsapp-small"
-      href="https://wa.me/447515017700"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      💬 WhatsApp
-    </a>
+    <section class="container" id="blogs">
 
-  </div>
+        <h2>Latest Blogs</h2>
 
-  <a
-    class="cta"
-    href="https://wa.me/447515017700?text=Hello%20I%20want%20new%20manual%20ID"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    📲 WhatsApp Now
-  </a>
+        <div class="blogs">
 
-  <p class="trust">
-    ✅ Trusted Manual Support<br>
-    ✅ Simple Process<br>
-    ✅ Fast Response
-  </p>
+            <div class="blog">
 
-  <div class="footer">
-    18+ Only | Play Responsibly | Follow Your Local Laws | T&amp;C Apply
-  </div>
+                <div class="blog-img">
+                    💪
+                </div>
 
-</div>
-```
+                <div class="blog-content">
 
-  </div>
+                    <small>Motivation</small>
 
-</div>
+                    <h3>
+                        Never Give Up
+                    </h3>
+
+                    <p>
+                        Difficult days are part of the journey.
+                        Keep going even when things feel impossible.
+                    </p>
+
+                    <a href="#" class="read">
+                        Read More →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="blog">
+
+                <div class="blog-img">
+                    🎯
+                </div>
+
+                <div class="blog-content">
+
+                    <small>Success</small>
+
+                    <h3>
+                        Focus On Your Goals
+                    </h3>
+
+                    <p>
+                        Clear goals give your life direction.
+                        Focus on what really matters to you.
+                    </p>
+
+                    <a href="#" class="read">
+                        Read More →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="blog">
+
+                <div class="blog-img">
+                    🌱
+                </div>
+
+                <div class="blog-content">
+
+                    <small>Growth</small>
+
+                    <h3>
+                        Become Better Every Day
+                    </h3>
+
+                    <p>
+                        You don't have to become perfect.
+                        Just try to become a little better every day.
+                    </p>
+
+                    <a href="#" class="read">
+                        Read More →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUOTE -->
+
+    <section class="quote">
+
+        <h2>
+            "Success is the sum of small efforts,
+            repeated day after day."
+        </h2>
+
+        <p>
+            — Keep Moving Forward
+        </p>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="container" id="about">
+
+        <h2>About This Blog</h2>
+
+        <p style="text-align:center; max-width:700px; margin:auto; color:#666; line-height:1.8;">
+            MotivateMe is a simple motivation blog created to
+            share positive thoughts, practical advice and
+            inspiring stories that can help you move forward.
+        </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer id="contact">
+
+        © 2026 MotivateMe. All Rights Reserved.
+
+    </footer>
 
 </body>
 </html>
-
+```
